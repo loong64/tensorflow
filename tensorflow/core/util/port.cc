@@ -69,6 +69,14 @@ bool IsAArch64Available() {
 #endif
 }
 
+bool IsLoongArchAvailable() {
+#if TF_LLVM_LOONGARCH_AVAILABLE
+  return true;
+#else
+  return false;
+#endif
+}
+
 bool IsPowerPCAvailable() {
 #if TF_LLVM_POWERPC_AVAILABLE
   return true;

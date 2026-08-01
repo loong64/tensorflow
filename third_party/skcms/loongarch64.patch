@@ -1,0 +1,15 @@
+diff --git a/src/Transform_inl.h b/src/Transform_inl.h
+--- a/src/Transform_inl.h
++++ b/src/Transform_inl.h
+@@ -211,8 +211,8 @@ SI U64 swap_endian_16x4(const U64& rgba) {
+ #if defined(USING_NEON)
+     SI F min_(F x, F y) { return (F)vminq_f32((float32x4_t)x, (float32x4_t)y); }
+     SI F max_(F x, F y) { return (F)vmaxq_f32((float32x4_t)x, (float32x4_t)y); }
+ #elif defined(__loongarch_sx)
+-    SI F min_(F x, F y) { return (F)__lsx_vfmin_s(x, y); }
+-    SI F max_(F x, F y) { return (F)__lsx_vfmax_s(x, y); }
++    SI F min_(F x, F y) { return if_then_else(x > y, y, x); }
++    SI F max_(F x, F y) { return if_then_else(x < y, y, x); }
+ #else
+     SI F min_(F x, F y) { return if_then_else(x > y, y, x); }
+     SI F max_(F x, F y) { return if_then_else(x < y, y, x); }

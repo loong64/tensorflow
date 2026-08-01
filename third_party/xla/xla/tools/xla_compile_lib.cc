@@ -271,6 +271,13 @@ static void InitializeTargets() {
   LLVMInitializeAArch64AsmParser();
   LLVMInitializeAArch64AsmPrinter();
 #endif
+#if XLA_LLVM_LOONGARCH_AVAILABLE
+  LLVMInitializeLoongArchTarget();
+  LLVMInitializeLoongArchTargetInfo();
+  LLVMInitializeLoongArchTargetMC();
+  LLVMInitializeLoongArchAsmParser();
+  LLVMInitializeLoongArchAsmPrinter();
+#endif
 #if XLA_LLVM_HEXAGON_AVAILABLE
   LLVMInitializeHexagonTarget();
   LLVMInitializeHexagonTargetInfo();

@@ -24,6 +24,8 @@ def _remote_platform_configure_impl(repository_ctx):
         cpu = "aarch64"
     elif machine_type.startswith("arm"):
         cpu = "arm"
+    elif machine_type.startswith("loongarch64"):
+        cpu = "loongarch64"
     elif machine_type.startswith("mips64"):
         cpu = "mips64"
     elif machine_type.startswith("riscv64"):

@@ -7,5 +7,6 @@ def repo():
         name = "cpuinfo",
         sha256 = "c0254ce97f7abc778dd2df0aaca1e0506dba1cd514fdb9fe88c07849393f8ef4",
         strip_prefix = "cpuinfo-8a9210069b5a37dd89ed118a783945502a30a4ae",
+        patch_file = ["//third_party/cpuinfo:cpuinfo_loongarch64_support.patch"],
         urls = tf_mirror_urls("https://github.com/pytorch/cpuinfo/archive/8a9210069b5a37dd89ed118a783945502a30a4ae.zip"),
     )

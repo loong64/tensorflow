@@ -686,6 +686,11 @@ limitations under the License.
 #else
 #define TF_PLAT_STR___linux__
 #endif
+#if defined(__loongarch64)
+#define TF_PLAT_STR___loongarch64__ TF_PLAT_STR_(__loongarch64)
+#else
+#define TF_PLAT_STR___loongarch64__
+#endif
 #if defined(__mips32__)
 #define TF_PLAT_STR___mips32__ TF_PLAT_STR_(__mips32__)
 #else

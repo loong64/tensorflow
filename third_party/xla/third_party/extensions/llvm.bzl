@@ -9,6 +9,7 @@ def _llvm_extension_impl(mctx):  # @unused
             "AArch64",
             "AMDGPU",
             "ARM",
+            "LoongArch",
             "NVPTX",
             "PowerPC",
             "RISCV",

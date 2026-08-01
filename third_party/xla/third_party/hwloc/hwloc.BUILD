@@ -269,6 +269,10 @@ cc_library(
             "hwloc/topology-linux.c",
             "include/hwloc/linux.h",
         ],
+        "@xla//xla/tsl:linux_loongarch64": [
+            "hwloc/topology-linux.c",
+            "include/hwloc/linux.h",
+        ],
         "@xla//xla/tsl:linux_ppc64le": [
             "hwloc/topology-linux.c",
             "include/hwloc/linux.h",

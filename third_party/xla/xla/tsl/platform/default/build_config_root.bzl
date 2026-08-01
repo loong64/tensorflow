@@ -138,6 +138,12 @@ def if_llvm_hexagon_available(then, otherwise = []):
     _ = then  # @unused
     return otherwise
 
+def if_llvm_loongarch_available(then, otherwise = []):
+    return select({
+        str(Label("//xla/tsl:loongarch64_or_cross")): then,
+        "//conditions:default": otherwise,
+    })
+
 def if_llvm_powerpc_available(then, otherwise = []):
     return select({
         str(Label("//xla/tsl:ppc64le_or_cross")): then,

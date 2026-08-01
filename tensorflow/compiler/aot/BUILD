@@ -5,6 +5,7 @@ load(
     "if_llvm_aarch32_available",
     "if_llvm_aarch64_available",
     "if_llvm_hexagon_available",
+    "if_llvm_loongarch_available",
     "if_llvm_powerpc_available",
     "if_llvm_system_z_available",
     "if_llvm_x86_available",
@@ -78,6 +79,8 @@ cc_library(
         "TF_LLVM_AARCH64_AVAILABLE=1",
     ]) + if_llvm_hexagon_available([
         "TF_LLVM_HEXAGON_AVAILABLE=1",
+    ]) + if_llvm_loongarch_available([
+        "TF_LLVM_LOONGARCH_AVAILABLE=1",
     ]) + if_llvm_powerpc_available([
         "TF_LLVM_POWERPC_AVAILABLE=1",
     ]) + if_llvm_system_z_available([
@@ -183,6 +186,9 @@ cc_library(
     ]) + if_llvm_hexagon_available([
         "@llvm-project//llvm:HexagonAsmParser",  # fixdeps: keep
         "@llvm-project//llvm:HexagonCodeGen",  # fixdeps: keep
+    ]) + if_llvm_loongarch_available([
+        "@llvm-project//llvm:LoongArchAsmParser",  # fixdeps: keep
+        "@llvm-project//llvm:LoongArchCodeGen",  # fixdeps: keep
     ]) + if_llvm_powerpc_available([
         "@llvm-project//llvm:PowerPCAsmParser",  # fixdeps: keep
         "@llvm-project//llvm:PowerPCCodeGen",  # fixdeps: keep

@@ -36,6 +36,7 @@ compile_pip_requirements(
         "--build-isolation",
         "--rebuild",
         "-c $(location :nvidia_constraints)",
+        "--extra-index-url", "https://gitlab.com/api/v4/projects/65746188/packages/pypi/simple",
     ],
     generate_hashes = True,
     requirements_txt = REQUIREMENTS,

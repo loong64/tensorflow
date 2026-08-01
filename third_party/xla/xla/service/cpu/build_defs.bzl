@@ -15,6 +15,9 @@ def runtime_copts():
         clean_dep("//xla/tsl:android_arm"): ["-mfpu=neon"],
         "//conditions:default": [],
     }) + select({
+        clean_dep("//xla/tsl:linux_loongarch64"): ["-DEIGEN_DONT_VECTORIZE"],
+        "//conditions:default": [],
+    }) + select({
         clean_dep("//xla/tsl:android"): ["-O2"],
         "//conditions:default": [],
     }))

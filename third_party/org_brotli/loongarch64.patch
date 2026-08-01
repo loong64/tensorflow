@@ -1,0 +1,15 @@
+diff --git a/c/common/platform.h b/c/common/platform.h
+--- a/c/common/platform.h
++++ b/c/common/platform.h
+@@ -665,7 +665,11 @@
+ #endif
+ 
+ #if BROTLI_GNUC_HAS_ATTRIBUTE(model, 3, 0, 3)
++#if defined(__loongarch__)
++#define BROTLI_MODEL(M) /* model attribute is not supported for LoongArch */
++#else
+ #define BROTLI_MODEL(M) __attribute__((model(M)))
++#endif
+ #else
+ #define BROTLI_MODEL(M) /* M */
+ #endif

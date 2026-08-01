@@ -24,6 +24,7 @@ load(
     "//tensorflow/core/platform:build_config_root.bzl",
     "if_llvm_aarch32_available",
     "if_llvm_aarch64_available",
+    "if_llvm_loongarch_available",
     "if_llvm_powerpc_available",
     "if_llvm_system_z_available",
     "if_llvm_x86_available",
@@ -145,6 +146,8 @@ tf_cc_binary(
         "@llvm-project//llvm:ARMCodeGen",  # fixdeps: keep
     ]) + if_llvm_aarch64_available([
         "@llvm-project//llvm:AArch64CodeGen",  # fixdeps: keep
+    ]) + if_llvm_loongarch_available([
+        "@llvm-project//llvm:LoongArchCodeGen",  # fixdeps: keep
     ]) + if_llvm_powerpc_available([
         "@llvm-project//llvm:PowerPCCodeGen",  # fixdeps: keep
     ]) + if_llvm_system_z_available([

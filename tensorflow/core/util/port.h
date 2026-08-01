@@ -38,6 +38,10 @@ bool IsAArch32Available();
 // AArch64)
 bool IsAArch64Available();
 
+// Returns true if TF_LLVM_LOONGARCH_AVAILABLE is defined. (i.e. TF is built
+// for LoongArch64)
+bool IsLoongArchAvailable();
+
 // Returns true if TF_LLVM_POWERPC_AVAILABLE is defined. (i.e. TF is built for
 // PowerPC)
 bool IsPowerPCAvailable();

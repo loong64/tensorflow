@@ -37,6 +37,7 @@ load(
     "if_dynamic_kernels",
     "if_llvm_aarch32_available",
     "if_llvm_aarch64_available",
+    "if_llvm_loongarch_available",
     "if_llvm_powerpc_available",
     "if_llvm_system_z_available",
     "if_llvm_x86_available",
@@ -387,6 +388,7 @@ def lrt_if_needed():
         clean_dep("//tensorflow:linux_aarch64"): lrt,
         clean_dep("//tensorflow:linux_x86_64"): lrt,
         clean_dep("//tensorflow:linux_ppc64le"): lrt,
+        clean_dep("//tensorflow:linux_loongarch64"): lrt,
         "//conditions:default": [],
     })
 
@@ -471,6 +473,7 @@ def tf_copts(
         if_enable_acl(["-DXLA_CPU_USE_ACL=1", "-fexceptions"]) +
         if_llvm_aarch32_available(["-DTF_LLVM_AARCH32_AVAILABLE=1"]) +
         if_llvm_aarch64_available(["-DTF_LLVM_AARCH64_AVAILABLE=1"]) +
+        if_llvm_loongarch_available(["-DTF_LLVM_LOONGARCH_AVAILABLE=1"]) +
         if_llvm_powerpc_available(["-DTF_LLVM_POWERPC_AVAILABLE=1"]) +
         if_llvm_system_z_available(["-DTF_LLVM_S390X_AVAILABLE=1"]) +
         if_llvm_x86_available(["-DTF_LLVM_X86_AVAILABLE=1"]) +

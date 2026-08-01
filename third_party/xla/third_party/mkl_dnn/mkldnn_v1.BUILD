@@ -219,6 +219,7 @@ cc_library(
     linkopts = select({
         "@xla//xla/tsl:linux_aarch64": ["-lrt"],
         "@xla//xla/tsl:linux_x86_64": ["-lrt"],
+        "@xla//xla/tsl:linux_loongarch64": ["-lrt"],
         "@xla//xla/tsl:linux_ppc64le": ["-lrt"],
         "@xla//xla/tsl:linux_riscv64": ["-lrt"],
         "//conditions:default": [],

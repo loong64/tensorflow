@@ -7,6 +7,7 @@ _LLVM_TARGETS = [
     "AArch64",
     "AMDGPU",
     "ARM",
+    "LoongArch",
     "NVPTX",
     "PowerPC",
     "RISCV",

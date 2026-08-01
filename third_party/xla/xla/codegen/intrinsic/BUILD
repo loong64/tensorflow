@@ -2,6 +2,7 @@ load("//xla:xla.default.bzl", "xla_cc_test")
 load(
     "//xla/tsl/platform:build_config_root.bzl",
     "if_llvm_aarch64_available",
+    "if_llvm_loongarch_available",
     "if_llvm_powerpc_available",
     "if_llvm_riscv_available",
     "if_llvm_system_z_available",
@@ -145,6 +146,9 @@ cc_library(
     ] + if_llvm_aarch64_available([
         "@llvm-project//llvm:AArch64AsmParser",  # fixdeps: keep
         "@llvm-project//llvm:AArch64CodeGen",  # fixdeps: keep
+    ]) + if_llvm_loongarch_available([
+        "@llvm-project//llvm:LoongArchAsmParser",  # fixdeps: keep
+        "@llvm-project//llvm:LoongArchCodeGen",  # fixdeps: keep
     ]) + if_llvm_powerpc_available([
         "@llvm-project//llvm:PowerPCAsmParser",  # fixdeps: keep
         "@llvm-project//llvm:PowerPCCodeGen",  # fixdeps: keep

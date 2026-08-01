@@ -28,6 +28,10 @@ limitations under the License.
 #include <sys/time.h>
 #endif
 
+#if defined(__loongarch64)
+#include <larchintrin.h>
+#endif
+
 #if defined(_WIN32)
 #include <intrin.h>
 #endif
@@ -93,6 +97,8 @@ class CpuUtils {
     }
     // Returning dummy clock when can't access to the counter
     return DUMMY_CYCLE_CLOCK;
+#elif defined(__loongarch64)
+    return __rdtime_d().dvalue;
 #elif defined(__powerpc64__) || defined(__ppc64__)
     uint64 __t;
     __asm__ __volatile__("mfspr %0,268" : "=r"(__t));

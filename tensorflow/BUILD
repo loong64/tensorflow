@@ -585,6 +585,16 @@ config_setting(
 )
 
 config_setting(
+    name = "linux_loongarch64",
+    constraint_values =
+        [
+            "@platforms//cpu:loongarch64",
+            "@platforms//os:linux",
+        ],
+    visibility = ["//visibility:public"],
+)
+
+config_setting(
     name = "linux_ppc64le",
     constraint_values =
         [

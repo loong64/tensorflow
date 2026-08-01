@@ -28,8 +28,10 @@ limitations under the License.
 namespace xla {
 namespace codegen {
 // Half precision (float16)
+#if defined(__FLT16_MANT_DIG__)
 typedef _Float16 Vec8h __attribute__((vector_size(16)));
 typedef _Float16 Vec16h __attribute__((vector_size(32)));
+#endif
 
 // Single precision (float32)
 typedef float Vec4f __attribute__((vector_size(16)));
@@ -94,6 +96,7 @@ struct CorrespondingIntVector {
 template <typename VecType>
 struct ArrayMap;
 
+#if defined(__FLT16_MANT_DIG__)
 template <>
 struct ArrayMap<Vec8h> {
   using type = Eigen::Array<Eigen::half, 8, 1>;
@@ -102,6 +105,7 @@ template <>
 struct ArrayMap<Vec16h> {
   using type = Eigen::Array<Eigen::half, 16, 1>;
 };
+#endif
 
 template <>
 struct ArrayMap<Vec4f> {

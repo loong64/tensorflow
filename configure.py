@@ -78,6 +78,10 @@ def is_s390x():
   return platform.machine() == 's390x'
 
 
+def is_loongarch64():
+  return platform.machine() in ('loongarch64', 'loong64')
+
+
 def is_cygwin():
   return platform.system().startswith('CYGWIN_NT')
 

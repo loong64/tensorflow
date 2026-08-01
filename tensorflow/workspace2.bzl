@@ -210,7 +210,10 @@ def _tf_repositories():
         name = "cpuinfo",
         sha256 = "c0254ce97f7abc778dd2df0aaca1e0506dba1cd514fdb9fe88c07849393f8ef4",
         strip_prefix = "cpuinfo-8a9210069b5a37dd89ed118a783945502a30a4ae",
-        patch_file = ["//third_party/cpuinfo:cpuinfo_ppc64le_support.patch"],
+        patch_file = [
+            "//third_party/cpuinfo:cpuinfo_ppc64le_support.patch",
+            "@xla//third_party/cpuinfo:cpuinfo_loongarch64_support.patch",
+        ],
         urls = tf_mirror_urls("https://github.com/pytorch/cpuinfo/archive/8a9210069b5a37dd89ed118a783945502a30a4ae.zip"),
     )
 
@@ -511,6 +514,10 @@ def _tf_repositories():
         name = "boringssl",
         sha256 = "9dc53f851107eaf87b391136d13b815df97ec8f76dadb487b58b2fc45e624d2c",
         strip_prefix = "boringssl-c00d7ca810e93780bd0c8ee4eea28f4f2ea4bcdc",
+        patch_file = [
+            "@xla//third_party:boringssl.patch",
+            "@xla//third_party:boringssl_loongarch64.patch",
+        ],
         system_build_file = "//third_party/systemlibs:boringssl.BUILD",
         urls = tf_mirror_urls("https://github.com/google/boringssl/archive/c00d7ca810e93780bd0c8ee4eea28f4f2ea4bcdc.tar.gz"),
     )

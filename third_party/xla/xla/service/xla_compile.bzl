@@ -32,6 +32,7 @@ def target_llvm_triple():
         "//xla/tsl:ios_x86_64": "x86_64-apple-ios",
         "//xla/tsl:linux_ppc64le": "ppc64le-ibm-linux-gnu",
         "//xla/tsl:linux_aarch64": "aarch64-none-linux-gnu",
+        "//xla/tsl:linux_loongarch64": "loongarch64-unknown-linux-gnu",
         "//xla/tsl:macos_x86_64": "x86_64-none-darwin",
         "//xla/tsl:macos_arm64": "aarch64-none-darwin",
         "//xla/tsl:windows": "x86_64-none-windows",

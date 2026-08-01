@@ -582,6 +582,7 @@ def target_llvm_triple():
         "//tensorflow:ios_x86_64": "x86_64-apple-ios",
         "//tensorflow:linux_ppc64le": "ppc64le-ibm-linux-gnu",
         "//tensorflow:linux_aarch64": "aarch64-none-linux-gnu",
+        "//tensorflow:linux_loongarch64": "loongarch64-unknown-linux-gnu",
         "//tensorflow:macos_x86_64": "x86_64-none-darwin",
         "//tensorflow:macos_arm64": "aarch64-none-darwin",
         "//tensorflow:windows": "x86_64-none-windows",

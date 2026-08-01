@@ -287,6 +287,7 @@ limitations under the License.
         TF_PLAT_STR___i686__                                               \
         TF_PLAT_STR___ia64__                                               \
         TF_PLAT_STR___linux__                                              \
+        TF_PLAT_STR___loongarch64__                                        \
         TF_PLAT_STR___mips32__                                             \
         TF_PLAT_STR___mips64__                                             \
         TF_PLAT_STR___powerpc64__                                          \

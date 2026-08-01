@@ -329,6 +329,7 @@ tf_wheel(
         "@platforms//cpu:arm64": "arm64",
         "@platforms//cpu:x86_64": "x86_64",
         "@platforms//cpu:ppc": "ppc64le",
+        "@platforms//cpu:loongarch64": "loongarch64",
     }),
     source_files = [
         "MANIFEST.in",

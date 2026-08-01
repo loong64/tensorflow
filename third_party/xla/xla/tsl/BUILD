@@ -313,6 +313,16 @@ config_setting(
 )
 
 config_setting(
+    name = "linux_loongarch64",
+    constraint_values =
+        [
+            "@platforms//cpu:loongarch64",
+            "@platforms//os:linux",
+        ],
+    visibility = ["//visibility:public"],
+)
+
+config_setting(
     name = "linux_ppc64le",
     constraint_values =
         [
@@ -384,6 +394,15 @@ selects.config_setting_group(
         ":macos_arm64",
         ":windows_aarch64",
         ":linux_armhf",
+        ":with_cross_compiler_support",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+selects.config_setting_group(
+    name = "loongarch64_or_cross",
+    match_any = [
+        ":linux_loongarch64",
         ":with_cross_compiler_support",
     ],
     visibility = ["//visibility:public"],
@@ -477,6 +496,7 @@ selects.config_setting_group(
     match_any = [
         ":linux_aarch64",
         ":linux_armhf",
+        ":linux_loongarch64",
         ":linux_ppc64le",
         ":linux_riscv64",
         ":linux_s390x",

@@ -61,6 +61,7 @@ limitations under the License.
 #include "llvm/Target/TargetMachine.h"
 #include "llvm/TargetParser/Host.h"
 #include "llvm/TargetParser/Triple.h"
+#include "llvm-c/Target.h"
 #include "llvm/Transforms/IPO/AlwaysInliner.h"
 #include "llvm/Transforms/Instrumentation/DataFlowSanitizer.h"
 #include "xla/backends/cpu/codegen/kernel_api_ir_builder.h"
@@ -210,6 +211,13 @@ IrCompiler::IrCompiler(TargetMachineBuilder target_machine_builder,
 static void InitializeLLVMTarget() {
   llvm::InitializeNativeTarget();
   llvm::InitializeNativeTargetAsmPrinter();
+#if XLA_LLVM_LOONGARCH_AVAILABLE
+  LLVMInitializeLoongArchTarget();
+  LLVMInitializeLoongArchTargetInfo();
+  LLVMInitializeLoongArchTargetMC();
+  LLVMInitializeLoongArchAsmParser();
+  LLVMInitializeLoongArchAsmPrinter();
+#endif
 }
 
 absl::once_flag initialize_llvm_flag;

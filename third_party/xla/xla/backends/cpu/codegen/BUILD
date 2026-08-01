@@ -4,6 +4,7 @@ load("//xla/tsl:tsl.bzl", "internal_visibility", "tsl_copts")
 load(
     "//xla/tsl/platform:build_config_root.bzl",
     "if_llvm_aarch64_available",
+    "if_llvm_loongarch_available",
     "if_llvm_powerpc_available",
     "if_llvm_riscv_available",
     "if_llvm_system_z_available",
@@ -93,6 +94,7 @@ cc_library(
     name = "ir_compiler",
     srcs = ["ir_compiler.cc"],
     hdrs = ["ir_compiler.h"],
+    defines = if_llvm_loongarch_available(["XLA_LLVM_LOONGARCH_AVAILABLE=1"]),
     deps = [
         ":kernel_api_ir_builder",
         ":polynomial_approximations",
@@ -166,6 +168,8 @@ xla_cc_test(
         "@llvm-project//llvm:TargetParser",
     ] + if_llvm_aarch64_available([
         "@llvm-project//llvm:AArch64CodeGen",  # fixdeps: keep
+    ]) + if_llvm_loongarch_available([
+        "@llvm-project//llvm:LoongArchCodeGen",  # fixdeps: keep
     ]) + if_llvm_powerpc_available([
         "@llvm-project//llvm:PowerPCCodeGen",  # fixdeps: keep
     ]) + if_llvm_riscv_available([
@@ -304,6 +308,8 @@ cc_library(
         "@tsl//tsl/profiler/lib:traceme_encode",
     ] + if_llvm_aarch64_available([
         "@llvm-project//llvm:AArch64CodeGen",  # fixdeps: keep
+    ]) + if_llvm_loongarch_available([
+        "@llvm-project//llvm:LoongArchCodeGen",  # fixdeps: keep
     ]) + if_llvm_powerpc_available([
         "@llvm-project//llvm:PowerPCCodeGen",  # fixdeps: keep
     ]) + if_llvm_riscv_available([

@@ -6,6 +6,7 @@ load(
     _if_llvm_aarch64_available = "if_llvm_aarch64_available",
     _if_llvm_arm_available = "if_llvm_arm_available",
     _if_llvm_hexagon_available = "if_llvm_hexagon_available",
+    _if_llvm_loongarch_available = "if_llvm_loongarch_available",
     _if_llvm_powerpc_available = "if_llvm_powerpc_available",
     _if_llvm_riscv_available = "if_llvm_riscv_available",
     _if_llvm_system_z_available = "if_llvm_system_z_available",
@@ -32,6 +33,7 @@ if_llvm_aarch32_available = _if_llvm_aarch32_available
 if_llvm_aarch64_available = _if_llvm_aarch64_available
 if_llvm_arm_available = _if_llvm_arm_available
 if_llvm_hexagon_available = _if_llvm_hexagon_available
+if_llvm_loongarch_available = _if_llvm_loongarch_available
 if_llvm_powerpc_available = _if_llvm_powerpc_available
 if_llvm_riscv_available = _if_llvm_riscv_available
 if_llvm_system_z_available = _if_llvm_system_z_available
